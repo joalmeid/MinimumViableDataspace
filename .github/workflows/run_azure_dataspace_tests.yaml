@@ -81,14 +81,14 @@ jobs:
           ./gradlew test -DincludeTags="EndToEndTest,ComponentTest"
         working-directory: .
 
-      - name: 'Destroy dataspace again'
-        run: |
-          ./shutdown_azure_dataspace.sh
-
-      - name: 'Delete Terraform state'
-        run: |
-          az storage blob delete -c ${{ env.TERRAFORM_STATE_CONTAINER }} -n ${{ env.RESOURCES_PREFIX }} --account-name ${{ env.TERRAFORM_STATE_STORAGE_ACCOUNT }}
-          az storage blob delete -c ${{ env.TERRAFORM_STATE_CONTAINER }} -n terraform.tfvars --account-name ${{ env.TERRAFORM_STATE_STORAGE_ACCOUNT }}
+#      - name: 'Destroy dataspace again'
+#        run: |
+#          ./shutdown_azure_dataspace.sh
+#
+#      - name: 'Delete Terraform state'
+#        run: |
+#         az storage blob delete -c ${{ env.TERRAFORM_STATE_CONTAINER }} -n ${{ env.RESOURCES_PREFIX }} --account-name ${{ env.TERRAFORM_STATE_STORAGE_ACCOUNT }}
+#          az storage blob delete -c ${{ env.TERRAFORM_STATE_CONTAINER }} -n terraform.tfvars --account-name ${{ env.TERRAFORM_STATE_STORAGE_ACCOUNT }}
           
 
 #  Destroy-Dataspace:
